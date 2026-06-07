@@ -9,6 +9,11 @@ services:
             dockerfile: Dockerfile
         networks:
             - dokploy-network
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.myapi.rule=Host(`northnet-software.ru`)"
+          - "traefik.http.routers.myapi.entrypoints=websecure"
+          - "traefik.http.services.myapi.loadbalancer.server.port=80"
 
 networks:
     dokploy-network:
