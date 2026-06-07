@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+    website:
+        container_name: main
+        build:
+            context: .
+            dockerfile: Dockerfile
+        networks:
+            - dokploy-network
+
+networks:
+    dokploy-network:
+        external: true
