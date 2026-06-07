@@ -4,6 +4,7 @@ WORKDIR /app
 COPY ./html ./dist
 
 FROM mirror.gcr.io/library/caddy:2.7-alpine
+RUN addgroup -S caddy && adduser -S caddy -G caddy
 
 COPY /gateway/Caddyfile /etc/caddy/Caddyfile
 
