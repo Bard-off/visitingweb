@@ -9,20 +9,6 @@ services:
             dockerfile: Dockerfile
         networks:
             - dokploy-network
-        labels:
-            - "traefik.enable=true"
-
-            # 1. Задаем единое имя роутера (пусть будет 'website') и твой домен
-            - "traefik.http.routers.website.rule=Host(`northnet-software.ru`)"
-
-            # 2. Указываем безопасную точку входа
-            - "traefik.http.routers.website.entrypoints=websecure"
-
-            # 3. Включаем генерацию сертификатов через резолвер, настроенный в Dokploy
-            - "traefik.http.routers.website.tls.certresolver=letsencrypt"
-
-            # 4. Самое важное: направляем трафик на порт 80, так как именно его слушает Caddy внутри!
-            - "traefik.http.services.website.loadbalancer.server.port=80"
 
 networks:
     dokploy-network:

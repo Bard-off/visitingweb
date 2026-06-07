@@ -14,4 +14,4 @@ COPY --from=builder /app/dist /usr/share/caddy
 
 USER caddy
 
-EXPOSE 80 443
+EXPOSE 8080
