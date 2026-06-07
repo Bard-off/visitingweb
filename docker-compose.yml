@@ -9,6 +9,9 @@ services:
             dockerfile: Dockerfile
         networks:
             - dokploy-network
+        expose:
+            - 80
+            - 443
 
 networks:
     dokploy-network:
