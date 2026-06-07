@@ -11,6 +11,6 @@ COPY /gateway/Caddyfile /etc/caddy/Caddyfile
 RUN caddy fmt --overwrite /etc/caddy/Caddyfile
 COPY --from=builder /app/dist /usr/share/caddy
 
-USER appuser
+USER caddy
 
 EXPOSE 80 443
